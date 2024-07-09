@@ -1,6 +1,5 @@
 {
   "name": "itsemon245/laravel-pausable-job",
-  "version": "1.0.0",
   "description": "This package makes your laravel jobs pauseable and resumable",
   "type": "library",
   "license": "MIT",
