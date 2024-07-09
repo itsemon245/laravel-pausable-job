@@ -1,0 +1,21 @@
+{
+    "name": "itsemon245/pausable-jobs",
+    "version": "1.0.0",
+    "description": "This package makes your laravel jobs pause and resumable",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Itsemon245\\PausableJobs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mojahidul Islam",
+            "email": "itsemon245@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^9.1"
+    }
+}
