@@ -1,21 +1,39 @@
 {
-    "name": "itsemon245/pausable-jobs",
-    "version": "1.0.0",
-    "description": "This package makes your laravel jobs pause and resumable",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Itsemon245\\PausableJobs\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Mojahidul Islam",
-            "email": "itsemon245@gmail.com"
-        }
-    ],
-    "require-dev": {
-        "orchestra/testbench": "^9.1"
+  "name": "itsemon245/pausable-job",
+  "version": "1.0.0",
+  "description": "This package makes your laravel jobs pauseable and resumable",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Itsemon245\\PausableJob\\": "src/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Itsemon245\\PausableJob\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-f": "vendor/bin/phpunit --filter"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Itsemon245\\PausableJob\\PausableJobServiceProvider"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Mojahidul Islam",
+      "email": "itsemon245@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "orchestra/testbench": "^9.1"
+  }
 }
