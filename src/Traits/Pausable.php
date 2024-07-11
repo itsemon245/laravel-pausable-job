@@ -5,6 +5,7 @@ namespace Itsemon245\PausableJob\Traits;
 use Closure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Enables the pause method for a job
@@ -32,6 +33,16 @@ trait Pausable
      * @var ?string
      */
     public ?string $paused_by_type = null;
+
+     /**
+     * Set the model that will be responsible for pausing the job
+     * @param Model $model
+     * @return void
+     */
+    public function setPausedBy(Model $model){
+        $this->paused_by_id = $model->id;
+        $this->paused_by_type = $model::class;
+    }
 
     /**
      * Pause the job in database and release it
