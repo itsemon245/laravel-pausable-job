@@ -4,7 +4,7 @@
 This package allows your laravel jobs to be **pausable** & **resumeable** by any model in your application on runtime.
 
 > [!NOTE]
-> **Currently it only supports Laravel's Default Database Connection**
+> **Currently it only supports Laravel's Default Database Connection for Queues**
 
 ### The Use Case
 
@@ -33,28 +33,15 @@ php artisan migrate
 
 class EmailJob implements ShouldQueue
 {
-    //Other traits
+  // Other Traits
    use Pausable;
 
     public function __construct(public Campaign $campaign)
     {
         /**
-         * Set which model is responsible to pause the job
+         * Set or bind which model is responsible to pause the job
          */
         $this->setPausedBy($campaign);
-    }
-
-    public function handle(): void
-    {
-        /**
-         * You can pause the job like this with your desired condition
-         */
-        if ($this->campaign->paused_at) {
-            $this->pause();
-            return;
-        }
-
-        // Handle the actual logic of the job
     }
 }
 ```
@@ -75,20 +62,14 @@ You can now pause and resume the jobs by following this example in your controll
 class CampaignController extends Controller{
 
   public function pause(Campaign $campaign){
-    //By pausing the campaign the jobs will be automatically paused because of the condition in the EmailJob handle method
-    $campaign->update([
-    'paused_at' => now()
-    ]);
+    //Immediately pause all jobs that are related to this campaign 
+    $campaign->pauseJobs();
   
     return back();
   }
   
   public function resume(Campaign $campaign){
-   $campaign->update([
-    'paused_at' => null
-    ]);
-  
-  // To actually resume the jobs from paused state you have to call the resumeJob() method from the campaign
+  // Resume jobs whenever you want
    $campaign->resumeJobs();
   }
 
