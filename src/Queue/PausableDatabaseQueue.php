@@ -15,6 +15,29 @@ class PausableDatabaseQueue extends DatabaseQueue {
     protected ?string $paused_by_type = null;
     protected ?int $paused_by_id = null;
 
+     /**
+     * Push a new job onto the queue.
+     *
+     * @param  mixed  $job
+     * @param  mixed  $data
+     * @param  string|null  $queue
+     * @return mixed
+     */
+    public function push($job, $data = '', $queue = null)
+    {
+        $this->paused_by_id = $job->paused_by_id;
+        $this->paused_by_type = $job->paused_by_type;
+        return $this->enqueueUsing(
+            $job,
+            $this->createPayload($job, $this->getQueue($queue), $data),
+            $queue,
+            null,
+            function ($payload, $queue) {
+                return $this->pushToDatabase($queue, $payload);
+            }
+        );
+    }
+
     /**
      * Delete a reserved job from the reserved queue and release it.
      *

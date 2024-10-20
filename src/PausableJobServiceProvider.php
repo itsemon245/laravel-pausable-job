@@ -17,9 +17,7 @@ class PausableJobServiceProvider extends QueueServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
-            // Publish the migration if not migrated
-            $path = database_path("migrations/*_pausable_job_migration.php");
-            $isPublished = shell_exec("ls $path");
+            $isPublished = class_exists('PausableJobMigration');
             if (!$isPublished) {
                 $this->publishes([
                   __DIR__ . '/../database/migrations/pausable_job_migration.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_pausable_job_migration.php'),

@@ -8,17 +8,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Enables the pause method for a job
+ * Enables the pause method for a Job
  * @author Mojahidul Islam <itsemon245@gmail.com>
  */
 trait Pausable
 {
-    /**
-     * The number of times the job may be attempted.
-     *
-     * @var int
-     */
-    public $tries = 3;
     
     /**
      * Id of the model that paused the job
