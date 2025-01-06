@@ -1,9 +1,9 @@
 ![Laravel_pausable_job_banner](https://github.com/itsemon245/laravel-pausable-job/assets/82655944/a9e055c9-9610-4d4e-94d4-ecc61acfd09b)
 
 <p align="center">
- <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/itsemon245/laravel-pausable-job?style=for-the-badge&label=Downloads&color=61C9A8" alt="Total Downloads"></a>
- <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/itsemon245/laravel-pausable-job?style=for-the-badge&label=Version" alt="Latest Stable Version"></a>
- <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/itsemon245/laravel-pausable-job?style=for-the-badge&label=License" alt="License"></a>
+ <a href="https://packagist.org/packages/itsemon245/laravel-pausable-job"><img src="https://img.shields.io/packagist/dt/itsemon245/laravel-pausable-job?style=for-the-badge&label=Downloads&color=61C9A8" alt="Total Downloads"></a>
+ <a href="https://packagist.org/packages/itsemon245/laravel-pausable-job"><img src="https://img.shields.io/packagist/v/itsemon245/laravel-pausable-job?style=for-the-badge&label=Version" alt="Latest Stable Version"></a>
+ <a href="https://packagist.org/packages/itsemon245/laravel-pausable-job"><img src="https://img.shields.io/packagist/l/itsemon245/laravel-pausable-job?style=for-the-badge&label=License" alt="License"></a>
 </p>
 
 # Laravel Pausable Job
