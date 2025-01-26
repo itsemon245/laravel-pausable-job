@@ -25,8 +25,9 @@ class PausableDatabaseQueue extends DatabaseQueue {
      */
     public function push($job, $data = '', $queue = null)
     {
-        $this->paused_by_id = $job->paused_by_id;
-        $this->paused_by_type = $job->paused_by_type;
+        $this->paused_by_id = property_exists($job, 'paused_by_id') ? $job->paused_by_id : null;
+        $this->paused_by_type = property_exists($job, 'paused_by_type') ? $job->paused_by_type : null;
+
         return $this->enqueueUsing(
             $job,
             $this->createPayload($job, $this->getQueue($queue), $data),
